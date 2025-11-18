@@ -196,9 +196,14 @@ Size: 2
   list kosong dianggap False, sehingga pengecekan kondisi ini adalah cara paling ringkas untuk memverifikasi apakah Stack atau Queue kosong sebelum melakukan operasi penghapusan.
 
 ## **Kesimpulan**
-    Implementasi struktur data Stack dan Queue menggunakan tipe data list Python menyediakan cara yang sederhana dan mudah dipahami untuk memvisualisasikan prinsip fundamentalnya: Stack mengikuti aturan LIFO (Last-In, First-Out) dan diimplementasikan secara efisien karena operasi Push (append()) dan Pop (pop()) keduanya memiliki kompleksitas waktu $O(1)$ . Sebaliknya, Queue yang menerapkan prinsip FIFO (First-In, First-Out) juga menggunakan append() untuk Enqueue secara efisien ($O(1)$), namun operasi Dequeue menggunakan pop(0) yang memiliki kompleksitas waktu $O(n)$; hal ini menjadikannya tidak efisien untuk antrian data yang besar karena setiap penghapusan elemen di awal list memerlukan pergeseran semua elemen yang tersisa. Meskipun list berguna untuk tujuan edukasi, aplikasi yang memerlukan kinerja tinggi dan seringnya operasi Dequeue sebaiknya beralih menggunakan collections.deque yang menjamin semua operasi di kedua ujung tetap memiliki kompleksitas waktu konstan ($O(1)$).
 
-
+Implementasi struktur data **Stack** dan **Queue** menggunakan tipe data **`list`** Python adalah metode yang sederhana untuk memahami prinsip dasar kedua struktur data tersebut, meskipun memiliki batasan kinerja yang signifikan pada Queue.
+* **Stack** diimplementasikan secara **efisien** karena memanfaatkan operasi `append()` untuk **Push** dan `pop()` untuk **Pop**. 
+* Kedua operasi ini memiliki kompleksitas waktu **konstan ($O(1)$)**, menjadikannya ideal karena interaksi Stack hanya terjadi di satu ujung (`tail` atau akhir list).
+* **Queue** juga menggunakan `append()` untuk **Enqueue** ($O(1)$) tetapi mengandalkan `pop(0)` untuk operasi **Dequeue**.
+* Operasi **Dequeue** ini memiliki kompleksitas waktu **linear ($O(n)$)** karena penghapusan elemen di awal list memerlukan pergeseran semua elemen yang tersisa di memori. 
+* Hal ini membuat implementasi Queue dengan `list` **tidak efisien** untuk volume data besar atau aplikasi yang membutuhkan kinerja tinggi.
+Untuk implementasi Queue yang optimal dalam konteks performa, **modul `collections.deque`** lebih disarankan karena dirancang untuk menjamin operasi Dequeue dan Enqueue di kedua ujung tetap berjalan dalam waktu **konstan ($O(1)$)**.
 
 
 
