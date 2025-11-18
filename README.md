@@ -1,113 +1,199 @@
-📌 README – Queue (Antrian)
-🧠 Konsep Dasar Queue
+Oke, aku paham maksudmu. Jadi penjelasan **diberikan dalam bahasa Indonesia**, tapi **kode tetap dalam bahasa Inggris** (seperti `stack.append()`, `queue.pop(0)`, dll). Aku bisa buat versi README GitHub tersembunyi seperti itu. Berikut contohnya:
 
-Queue atau Antrian adalah struktur data yang cara kerjanya seperti antrean di dunia nyata:
-➡️ Yang datang duluan, dilayani duluan.
-Istilah kerennya yaitu FIFO (First In, First Out).
-🧾 Penjelasan Kode
-queue = []
+````markdown
+<!--
+# **Implementasi Stack dan Queue di Python**
 
-# Enqueue
-queue.append('A')
-queue.append('B')
-queue.append('C')
-print("Queue: ", queue)
+Dokumentasi ini menjelaskan **struktur data Stack dan Queue** menggunakan Python.  
+Keduanya menggunakan tipe data **list**, karena Python menyediakan operasi yang efisien seperti `append()`, `pop()`, dan indexing.
 
-# Dequeue
-element = queue.pop(0)
-print("Dequeue: ", element)
+## **1. Stack (LIFO — Last In, First Out)**
 
-# Peek
-frontElement = queue[0]
-print("Peek: ", frontElement)
+Stack adalah struktur data di mana elemen terakhir yang dimasukkan akan menjadi elemen pertama yang keluar.
 
-# isEmpty
-isEmpty = not bool(queue)
-print("isEmpty: ", isEmpty)
-🔍 Operasi-operasi pada Queue
-| Operasi           | Penjelasan                                            |
-| ----------------- | ----------------------------------------------------- |
-| `append()`        | Memasukkan data ke antrian (**enqueue**)              |
-| `pop(0)`          | Mengambil & menghapus data paling depan (**dequeue**) |
-| `queue[0]`        | Melihat data terdepan tanpa menghapus (**peek**)      |
-| `not bool(queue)` | Mengecek apakah queue kosong                          |
-| `len(queue)`      | Mengecek total data dalam antrian                     |
-📝 Alur Singkat Eksekusi
+### **Membuat Stack**
 
-Tambahkan A, B, C → ['A', 'B', 'C']
-
-Dequeue: ambil elemen pertama → 'A'
-
-Queue sekarang → ['B', 'C']
-
-Peek hasilnya 'B'
-
-Queue tidak kosong → False
-
-Ukuran queue → 2
-
-📌 README – Stack (Tumpukan)
-🧠 Konsep Dasar Stack
-
-Stack atau Tumpukan adalah struktur data yang cara kerjanya seperti menyusun piring:
-➡️ Yang ditaruh terakhir, diambil paling pertama.
-Istilah kerennya yaitu LIFO (Last In, First Out).
-
-🧾 Penjelasan Kode
+```python
 stack = []
+````
 
-# Push
+### **Push (Menambahkan Elemen ke Stack)**
+
+```python
 stack.append('A')
 stack.append('B')
 stack.append('C')
-print("Stack: ", stack)
+print("Stack:", stack)
+```
 
-# Pop
+**Output:**
+
+```
+Stack: ['A', 'B', 'C']
+```
+
+### **Pop (Menghapus Elemen Teratas)**
+
+```python
 element = stack.pop()
-print("Pop: ", element)
+print("Pop:", element)
+```
 
-# Peek 
+**Output:**
+
+```
+Pop: C
+```
+
+### **Peek (Melihat Elemen Teratas Tanpa Menghapus)**
+
+```python
 topElement = stack[-1]
-print("Peek: ", topElement)
+print("Peek:", topElement)
+```
 
-# isEmpty
+**Output:**
+
+```
+Peek: B
+```
+
+### **Cek Apakah Stack Kosong**
+
+```python
 isEmpty = not bool(stack)
-print("isEmpty: ", isEmpty)
+print("isEmpty:", isEmpty)
+```
 
-# Size
-print("Size :", len(stack))
+**Output:**
 
-🔍 Operasi-operasi pada Stack
-| Operasi           | Penjelasan                                          |
-| ----------------- | --------------------------------------------------- |
-| `append()`        | Menambah data ke paling atas (**push**)             |
-| `pop()`           | Mengambil & menghapus data terakhir (**pop**)       |
-| `stack[-1]`       | Melihat data paling atas tanpa menghapus (**peek**) |
-| `not bool(stack)` | Mengecek apakah stack kosong                        |
-| `len(stack)`      | Mengecek total data dalam stack                     |
+```
+isEmpty: False
+```
 
-📝 Alur Singkat Eksekusi
+### **Ukuran Stack**
 
-Push A, B, C → ['A', 'B', 'C']
+```python
+print("Size:", len(stack))
+```
 
-Pop menghapus 'C'
+**Output:**
 
-Stack sekarang → ['A', 'B']
+```
+Size: 2
+```
 
-Peek hasilnya 'B'
+## **2. Queue (FIFO — First In, First Out / Antrian)**
 
-Stack tidak kosong → False
+Queue adalah struktur data di mana elemen pertama yang masuk akan menjadi elemen pertama yang keluar.
+Dalam istilah sehari-hari, bisa disebut **antrian**.
 
-Ukuran stack → 2
+### **Membuat Queue**
 
-🆚 Perbedaan Inti Stack vs Queue
-| Struktur  | Prinsip                   | Ilustrasi        |
-| --------- | ------------------------- | ---------------- |
-| **Queue** | FIFO (First In First Out) | Antri beli tiket |
-| **Stack** | LIFO (Last In First Out)  | Menumpuk piring  |
+```python
+queue = []
+```
 
+### **Enqueue (Menambahkan Elemen ke Antrian)**
 
+```python
+queue.append('A')
+queue.append('B')
+queue.append('C')
+print("Queue:", queue)
+```
 
+**Output:**
 
-# Size
-print("Size: ", len(queue))
+```
+Queue: ['A', 'B', 'C']
+```
+
+### **Dequeue (Menghapus Elemen Depan Antrian)**
+
+```python
+element = queue.pop(0)
+print("Dequeue:", element)
+```
+
+**Output:**
+
+```
+Dequeue: A
+```
+
+### **Peek (Melihat Elemen Depan Tanpa Menghapus)**
+
+```python
+frontElement = queue[0]
+print("Peek:", frontElement)
+```
+
+**Output:**
+
+```
+Peek: B
+```
+
+### **Cek Apakah Queue Kosong**
+
+```python
+isEmpty = not bool(queue)
+print("isEmpty:", isEmpty)
+```
+
+**Output:**
+
+```
+isEmpty: False
+```
+
+### **Ukuran Queue**
+
+```python
+print("Size:", len(queue))
+```
+
+**Output:**
+
+```
+Size: 2
+```
+
+## **Ringkasan Output Program**
+
+### **Stack**
+
+```
+Stack: ['A', 'B', 'C']
+Pop: C
+Peek: B
+isEmpty: False
+Size: 2
+```
+
+### **Queue / Antrian**
+
+```
+Queue: ['A', 'B', 'C']
+Dequeue: A
+Peek: B
+isEmpty: False
+Size: 2
+```
+
+## **Struktur Data yang Digunakan**
+
+* `append()` ➝ menambah elemen
+* `pop()` ➝ menghapus elemen (terakhir / berdasarkan index)
+* indexing `[0]` dan `[-1]` ➝ melihat elemen depan/teratas
+* `len()` ➝ menghitung jumlah elemen
+* `bool(list)` ➝ mengecek apakah list kosong
+  -->
+
+```
+
+Kalau kamu mau, aku bisa buat **versi ini lebih rapi lagi dengan komentar tambahan** supaya lebih “educational” saat dibaca orang di GitHub, tapi tetap tersembunyi.  
+
+Apakah mau aku buat versi itu juga?
+```
