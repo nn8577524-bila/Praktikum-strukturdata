@@ -1,23 +1,22 @@
-Oke, aku paham maksudmu. Jadi penjelasan **diberikan dalam bahasa Indonesia**, tapi **kode tetap dalam bahasa Inggris** (seperti `stack.append()`, `queue.pop(0)`, dll). Aku bisa buat versi README GitHub tersembunyi seperti itu. Berikut contohnya:
 
-````markdown
-<!--
 # **Implementasi Stack dan Queue di Python**
 
-Dokumentasi ini menjelaskan **struktur data Stack dan Queue** menggunakan Python.  
+Dokumentasi ini menjelaskan implementasi dasar struktur data **Stack** dan **Queue** menggunakan bahasa Python.
 Keduanya menggunakan tipe data **list**, karena Python menyediakan operasi yang efisien seperti `append()`, `pop()`, dan indexing.
+Implementasi struktur data Stack dan Queue menggunakan tipe data list Python sangat membantu dalam memahami prinsip dasarnya: LIFO (Last-In, First-Out) untuk Stack dan FIFO (First-In, First-Out) untuk Queue.
 
-## **1. Stack (LIFO — Last In, First Out)**
 
-Stack adalah struktur data di mana elemen terakhir yang dimasukkan akan menjadi elemen pertama yang keluar.
+##  **1. Stack (LIFO — Last In, First Out)**
 
-### **Membuat Stack**
+Stack adalah struktur data linear yang menerapkan prinsip LIFO (Last-In, First-Out). Ini berarti elemen yang terakhir dimasukkan ke dalam tumpukan adalah elemen pertama yang akan dikeluarkan.
+
+###  **Membuat Stack**
 
 ```python
 stack = []
-````
+```
 
-### **Push (Menambahkan Elemen ke Stack)**
+###  **Push (Menambah Elemen ke Stack)**
 
 ```python
 stack.append('A')
@@ -32,7 +31,7 @@ print("Stack:", stack)
 Stack: ['A', 'B', 'C']
 ```
 
-### **Pop (Menghapus Elemen Teratas)**
+###  **Pop (Menghapus Elemen Teratas)**
 
 ```python
 element = stack.pop()
@@ -45,7 +44,7 @@ print("Pop:", element)
 Pop: C
 ```
 
-### **Peek (Melihat Elemen Teratas Tanpa Menghapus)**
+###  **Peek (Melihat Elemen Teratas Tanpa Menghapus)**
 
 ```python
 topElement = stack[-1]
@@ -58,7 +57,7 @@ print("Peek:", topElement)
 Peek: B
 ```
 
-### **Cek Apakah Stack Kosong**
+###  **Cek Apakah Stack Kosong**
 
 ```python
 isEmpty = not bool(stack)
@@ -71,7 +70,7 @@ print("isEmpty:", isEmpty)
 isEmpty: False
 ```
 
-### **Ukuran Stack**
+###  **Ukuran Stack**
 
 ```python
 print("Size:", len(stack))
@@ -83,18 +82,17 @@ print("Size:", len(stack))
 Size: 2
 ```
 
-## **2. Queue (FIFO — First In, First Out / Antrian)**
 
-Queue adalah struktur data di mana elemen pertama yang masuk akan menjadi elemen pertama yang keluar.
-Dalam istilah sehari-hari, bisa disebut **antrian**.
+##  **2. Queue (FIFO — First In, First Out)**
 
-### **Membuat Queue**
+Queue adalah struktur data linear yang menerapkan prinsip FIFO (First-In, First-Out). Ini berarti elemen yang pertama dimasukkan ke dalam antrian adalah elemen pertama yang akan dikeluarkan.
+###  **Membuat Queue**
 
 ```python
 queue = []
 ```
 
-### **Enqueue (Menambahkan Elemen ke Antrian)**
+###  **Enqueue (Menambah Elemen ke Queue)**
 
 ```python
 queue.append('A')
@@ -109,7 +107,7 @@ print("Queue:", queue)
 Queue: ['A', 'B', 'C']
 ```
 
-### **Dequeue (Menghapus Elemen Depan Antrian)**
+###  **Dequeue (Menghapus Elemen Depan)**
 
 ```python
 element = queue.pop(0)
@@ -122,7 +120,7 @@ print("Dequeue:", element)
 Dequeue: A
 ```
 
-### **Peek (Melihat Elemen Depan Tanpa Menghapus)**
+###  **Peek (Melihat Elemen Depan Tanpa Menghapus)**
 
 ```python
 frontElement = queue[0]
@@ -135,7 +133,7 @@ print("Peek:", frontElement)
 Peek: B
 ```
 
-### **Cek Apakah Queue Kosong**
+###  **Cek Apakah Queue Kosong**
 
 ```python
 isEmpty = not bool(queue)
@@ -148,7 +146,7 @@ print("isEmpty:", isEmpty)
 isEmpty: False
 ```
 
-### **Ukuran Queue**
+###  **Ukuran Queue**
 
 ```python
 print("Size:", len(queue))
@@ -160,7 +158,8 @@ print("Size:", len(queue))
 Size: 2
 ```
 
-## **Ringkasan Output Program**
+
+##  **Ringkasan Output Program**
 
 ### **Stack**
 
@@ -172,7 +171,7 @@ isEmpty: False
 Size: 2
 ```
 
-### **Queue / Antrian**
+### **Queue**
 
 ```
 Queue: ['A', 'B', 'C']
@@ -182,18 +181,24 @@ isEmpty: False
 Size: 2
 ```
 
-## **Struktur Data yang Digunakan**
+
+##  **Struktur Data yang Digunakan**
 
 * `append()` ➝ menambah elemen
+   Metode ini berfungsi untuk menambahkan satu elemen baru ke akhir list, yang sangat efisien ($O(1)$) dan berguna sebagai operasi Push (Stack) atau Enqueue (Queue).
 * `pop()` ➝ menghapus elemen (terakhir / berdasarkan index)
+   Metode ini menghapus dan mengembalikan elemen; jika tanpa indeks, ia menghapus elemen terakhir ($O(1)$) untuk Pop Stack, namun jika menggunakan pop(0), ia menghapus elemen pertama ($O(n)$) untuk Dequeue Queue.
 * indexing `[0]` dan `[-1]` ➝ melihat elemen depan/teratas
+  Dengan indexing, kita dapat mengakses elemen pertama ([0]) atau elemen terakhir ([-1]) dalam waktu konstan ($O(1)$) untuk operasi Peek tanpa menghapus elemen tersebut.
 * `len()` ➝ menghitung jumlah elemen
+  Fungsi ini secara cepat mengembalikan total jumlah elemen yang ada dalam list, yang berguna untuk mengetahui ukuran Stack atau Queue saat ini ($O(1)$).
 * `bool(list)` ➝ mengecek apakah list kosong
-  -->
+  list kosong dianggap False, sehingga pengecekan kondisi ini adalah cara paling ringkas untuk memverifikasi apakah Stack atau Queue kosong sebelum melakukan operasi penghapusan.
 
-```
+## **Kesimpulan**
+    Implementasi struktur data Stack dan Queue menggunakan tipe data list Python menyediakan cara yang sederhana dan mudah dipahami untuk memvisualisasikan prinsip fundamentalnya: Stack mengikuti aturan LIFO (Last-In, First-Out) dan diimplementasikan secara efisien karena operasi Push (append()) dan Pop (pop()) keduanya memiliki kompleksitas waktu $O(1)$ . Sebaliknya, Queue yang menerapkan prinsip FIFO (First-In, First-Out) juga menggunakan append() untuk Enqueue secara efisien ($O(1)$), namun operasi Dequeue menggunakan pop(0) yang memiliki kompleksitas waktu $O(n)$; hal ini menjadikannya tidak efisien untuk antrian data yang besar karena setiap penghapusan elemen di awal list memerlukan pergeseran semua elemen yang tersisa. Meskipun list berguna untuk tujuan edukasi, aplikasi yang memerlukan kinerja tinggi dan seringnya operasi Dequeue sebaiknya beralih menggunakan collections.deque yang menjamin semua operasi di kedua ujung tetap memiliki kompleksitas waktu konstan ($O(1)$).
 
-Kalau kamu mau, aku bisa buat **versi ini lebih rapi lagi dengan komentar tambahan** supaya lebih “educational” saat dibaca orang di GitHub, tapi tetap tersembunyi.  
 
-Apakah mau aku buat versi itu juga?
-```
+
+
+
